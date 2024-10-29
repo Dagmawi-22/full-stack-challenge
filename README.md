@@ -1,5 +1,10 @@
 ## full-stack-challenge
 
+![image](https://github.com/user-attachments/assets/01dab95b-75cd-4304-8300-37dbd2f02ba7)
+![image](https://github.com/user-attachments/assets/32264767-d189-46fb-b1f7-dffb1f69d88b)
+![image](https://github.com/user-attachments/assets/831bb48d-af51-455b-8b16-74e460daf64b)
+![image](https://github.com/user-attachments/assets/80b4d137-db70-473e-b489-decc7447177e)
+
 #### a simple product store full-stack application for challenge
 
 ### Tools used 
