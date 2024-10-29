@@ -1,4 +1,4 @@
-fetch("/api/categories")
+fetch("http://localhost:8000/api/categories")
   .then((response) => response.json())
   .then((categories) => {
     const categoriesDiv = document.getElementById("categories");

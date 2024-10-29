@@ -6,7 +6,10 @@ const categoryRoutes = require("./routes/categories");
 const orderRoutes = require("./routes/orders");
 require("dotenv").config();
 
+const cors = require("cors");
+
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 8000;
@@ -14,10 +17,7 @@ const MONGODB_URL =
   process.env.MONGODB_URL || "mongodb://localhost:27017/products";
 
 mongoose
-  .connect(MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGODB_URL, {})
   .then(() => {
     console.log("Connected to MongoDB");
   })

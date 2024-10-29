@@ -1,10 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product");
+const Category = require("../models/Category");
 
 router.get("/", async (req, res) => {
-  const products = await Product.find().populate("category");
-  res.json(products);
+  try {
+    const { category } = req.query;
+    const query = category ? { category } : {};
+    const products = await Product.find(query);
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 router.get("/:id", async (req, res) => {
