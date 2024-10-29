@@ -49,4 +49,4 @@
    ```bash
    node index.js
    ```
-- Finally, start client/index.html in your preferred browser
+- Finally, open client/index.html in your preferred browser
