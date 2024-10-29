@@ -11,4 +11,36 @@
 
 ### Folder structure
 
-/your-project/ │ ├── /src/ # Contains all the source code │ ├── /components/ # Reusable UI components │ ├── /assets/ # Images, fonts, and other assets │ ├── /styles/ # Stylesheets for the application │ ├── /pages/ # Page components for routing │ └── index.js # Main entry point of the application │ ├── /public/ # Publicly accessible files │ └── index.html # Main HTML file │ ├── /tests/ # Test files and test cases │ └── app.test.js # Example test file │ ├── .gitignore # Specifies files to be ignored by Git ├── package.json # Project metadata and dependencies └── README.md
+   ├── ...
+    ├── client                      # client side application logic
+        ├── css                        # stylesheets for html files
+            ├── cart.css
+            ├── checkout.css
+            ├── product-detail.css
+            ├── products.css
+        ├── js                         # script files for the client side
+            ├── cart.js
+            ├── categories.js
+            ├── checkout.js
+            ├── common.js
+            ├── products.js
+            ├── product-detail.js
+        ├── cart.html                 # cart page
+        ├── checkout.html             # checkout page
+        ├── index.html                # main product listing page
+        ├── product.html              # product detail page
+    ├── server                      # server side application logic
+    │   ├── models                     # database schemas using mongoose
+            ├── Cart.js                 
+            ├── Category.js
+            ├── Order.js
+            ├── Product.js
+    │   ├── routes                    # registered api routes for each model
+            ├── cart.js                 
+            ├── categories.js         
+            ├── order.js              
+            ├── products.js           
+        ├── .env                        
+        ├── .env.example               
+        ├── index.js                  # entry point of the server app
+     
