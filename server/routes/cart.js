@@ -3,10 +3,9 @@ const router = express.Router();
 const Cart = require("../models/Cart");
 const Product = require("../models/Product");
 
-// POST route to add items to the cart
 router.post("/add", async (req, res) => {
   try {
-    const { productId, quantity } = req.body; // Removed userId
+    const { productId, quantity } = req.body;
 
     let cartItem = await Cart.findOne({ productId });
     if (cartItem) {
