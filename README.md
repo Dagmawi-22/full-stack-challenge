@@ -20,7 +20,7 @@
 ### How to run the app locally
 
 - First, clone the app from terminal,
-   ```git clone https://github.com/Dagmawi-22/full-stack-challenge```
+   ```bash git clone https://github.com/Dagmawi-22/full-stack-challenge```
 - Then, cd in to the directory,
    ```cd full-stack-challenge```
 - Then, install dependencies,
