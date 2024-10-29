@@ -25,31 +25,34 @@ const categories = [
   { name: "Clothing" },
 ];
 
-// Seed products
 const products = [
   {
     name: "Smartphone",
     price: 699.99,
     category: "Electronics",
-    imageUrl: "path/to/smartphone.jpg",
+    imageUrl:
+      "https://i.guim.co.uk/img/media/2ce8db064eabb9e22a69cc45a9b6d4e10d595f06/392_612_4171_2503/master/4171.jpg?width=1020&dpr=1&s=none&crop=none",
   },
   {
     name: "Laptop",
     price: 1299.99,
     category: "Electronics",
-    imageUrl: "path/to/laptop.jpg",
+    imageUrl:
+      "https://cdn.thewirecutter.com/wp-content/media/2023/11/editing-laptop-2048px-231551-2x1-1.jpg?width=1024&quality=75&crop=2:1&auto=webp",
   },
   {
     name: "Novel",
     price: 19.99,
     category: "Books",
-    imageUrl: "path/to/novel.jpg",
+    imageUrl:
+      "https://media.istockphoto.com/id/173015527/photo/a-single-red-book-on-a-white-surface.jpg?s=612x612&w=0&k=20&c=AeKmdZvg2_bRY2Yct7odWhZXav8CgDtLMc_5_pjSItY=",
   },
   {
     name: "T-shirt",
     price: 29.99,
     category: "Clothing",
-    imageUrl: "path/to/tshirt.jpg",
+    imageUrl:
+      "https://www.tradeprint.co.uk/dam/jcr:cfdb2af1-7b39-483a-8fce-f665c63b5222/Heavy%20Cotton%20T-Shirt%20Black.webp",
   },
 ];
 

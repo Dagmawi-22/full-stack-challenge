@@ -3,19 +3,20 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="./css/checkout.css">
 </head>
 
 <body>
-  <h1>Checkout</h1>
-  <form id="checkoutForm">
-    <input type="text" id="name" placeholder="Name">
-    <input type="text" id="address" placeholder="Address">
-    <div id="total"></div>
-    <button type="button" onclick="confirmOrder()">Confirm Order</button>
-  </form>
-  <script src="js/checkout.js"></script>
+  <header>
+    <h1>Checkout</h1>
+  </header>
+
+  <div id="checkout-details"></div>
+  <button id="confirm-order">Confirm Order</button>
+
+  <script src="./js/checkout.js"></script>
 </body>
 
 </html>

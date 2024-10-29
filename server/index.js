@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/products");
 const categoryRoutes = require("./routes/categories");
-const orderRoutes = require("./routes/orders");
+const cartRoutes = require("./routes/cart");
+const orderRoutes = require("./routes/order");
 require("dotenv").config();
 
 const cors = require("cors");
@@ -27,7 +28,8 @@ mongoose
 
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
-app.use("/api/orders", orderRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/order", orderRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

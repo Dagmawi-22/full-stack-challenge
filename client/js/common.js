@@ -1,29 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const categorySelect = document.getElementById("category-select");
   const productsDiv = document.getElementById("products");
-  const cartCount = document.getElementById("cart-count");
+  const cartCountDiv = document.getElementById("cart-count");
+  let cartCount = 0;
 
-  const updateCartCount = () => {
-    fetch(`${window.API_BASE_URL}/cart/count`)
+  const fetchCategories = () => {
+    fetch("http://localhost:8000/api/categories")
       .then((response) => response.json())
-      .then((data) => {
-        cartCount.textContent = data.count;
+      .then((categories) => {
+        categories.forEach((category) => {
+          const option = document.createElement("option");
+          option.value = category.name;
+          option.textContent = category.name;
+          categorySelect.appendChild(option);
+        });
       });
   };
 
-  fetch(`${window.API_BASE_URL}/categories`)
-    .then((response) => response.json())
-    .then((categories) => {
-      categories.forEach((category) => {
-        const option = document.createElement("option");
-        option.value = category.name;
-        option.textContent = category.name;
-        categorySelect.appendChild(option);
-      });
-    });
-
   const fetchProducts = (category = "") => {
-    let url = `${window.API_BASE_URL}/products`;
+    let url = "http://localhost:8000/api/products";
     if (category) {
       url += `?category=${category}`;
     }
@@ -35,23 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
           const productElement = document.createElement("div");
           productElement.className = "product";
           productElement.innerHTML = `
-          <a href="product.html?id=${product._id}" style="text-decoration: none; color: inherit;">
-            <h2>${product.name}</h2>
-            <p>$${product.price}</p>
-          </a>
-          <button onclick="addToCart('${product._id}')">Add to Cart</button>
-        `;
+            <a href="product.html?id=${product._id}" style="text-decoration: none; color: inherit;">
+              <img src="${product.imageUrl}" alt="${product.name}" style="width: 100%; border-radius: 8px;" />
+              <h2>${product.name}</h2>
+              <p>$${product.price}</p>
+            </a>
+            <button onclick="addToCart('${product._id}')">Add to Cart</button>
+          `;
           productsDiv.appendChild(productElement);
         });
       });
   };
 
-  window.viewDetails = viewDetails;
-
   const addToCart = (productId) => {
     const quantity = 1;
 
-    fetch(`${window.API_BASE_URL}/cart/add`, {
+    fetch("http://localhost:8000/api/cart/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,14 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert("Product added to cart!");
+        cartCount += quantity;
         updateCartCount();
+        alert("Product added to cart!");
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
 
+  const updateCartCount = () => {
+    cartCountDiv.textContent = cartCount;
+  };
+
+  fetchCategories();
   fetchProducts();
   updateCartCount();
 

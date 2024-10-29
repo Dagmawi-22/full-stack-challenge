@@ -1,15 +1,30 @@
-function displayCart() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartDiv = document.getElementById("cart");
-  cart.forEach((item) => {
-    const itemDiv = document.createElement("div");
-    itemDiv.textContent = `${item.name} - ${item.quantity} - $${item.price}`;
-    cartDiv.appendChild(itemDiv);
-  });
-}
+const cartItemsDiv = document.getElementById("cart-items");
 
-displayCart();
+const fetchCartItems = () => {
+  fetch(`http://localhost:8000/api/cart`)
+    .then((response) => response.json())
+    .then((cartItems) => {
+      cartItemsDiv.innerHTML = "";
+      cartItems.forEach((item) => {
+        cartItemsDiv.innerHTML += `
+                    <div class="cart-item">
+                        <h2>${item.product.name}</h2>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Price: $${(
+                          item.product.price * item.quantity
+                        ).toFixed(2)}</p>
+                    </div>
+                `;
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching cart items:", error);
+      cartItemsDiv.innerHTML = "<p>Error fetching cart items.</p>";
+    });
+};
 
-function checkout() {
+fetchCartItems();
+
+document.getElementById("checkout-btn").addEventListener("click", () => {
   window.location.href = "checkout.html";
-}
+});
