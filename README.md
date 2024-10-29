@@ -10,6 +10,8 @@
  - MongoDB
 
 ### Folder structure
+![image](https://github.com/user-attachments/assets/7d67bf2b-45af-4a3c-8399-10eb8f5a0835)
+
 
    ├── ...
     ├── client                      # client side application logic
